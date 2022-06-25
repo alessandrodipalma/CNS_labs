@@ -1,0 +1,2 @@
+delay,units,train mse,val mse,design mse,test mse
+10,4,0.0046135,0.0041032,0.0045568,0.0044412

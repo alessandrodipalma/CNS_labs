@@ -1,0 +1,2 @@
+delays,units,train mse,val mse,design mse,test mse
+1,3   8  10,8.5881e-08,8.5564e-08,6.9928e-08,7.5828e-08
