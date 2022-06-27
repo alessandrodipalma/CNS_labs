@@ -21,7 +21,7 @@ for c = 1:n_config
     units(c) = {cell2mat(configs(c, 2+1:2+n_layers))};
 end
 configs = {delays{:}; units{:}}';
-out_dir = "best_tdn_2";
+out_dir = "best_tdn";
 random_search({ds, train_split,""}, {ds, test_split,out_dir}, ...
     configs, {"delay","units"}, @train_tdn, out_dir);
 
