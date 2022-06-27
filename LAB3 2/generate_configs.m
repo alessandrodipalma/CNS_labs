@@ -1,5 +1,10 @@
 function [combinations] = generate_configs(ranges, scalings, n)
-    % generate all possible combs
+    % generate all possible combinations given ranges of values.
+    % ranges: cell array containing  ranges
+    % scalings: 1xlength(ranges) array of doubles containing the scaling
+    % factors of each parameter. If you don't want to scale, it should
+    % contain all ones.
+    % n: number of randomly sampled configurations.
     
     combinations = combvec(ranges{:});
     l = 1;

@@ -1,6 +1,5 @@
 classdef esn
-    %ESN Summary of this class goes here
-    %   Detailed explanation goes here
+    % Simple Echo State Network implementation.
     
     properties
         W, U, V, Nw , Nin, Nout, sparsity

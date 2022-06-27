@@ -1,12 +1,11 @@
 function [net,tr] = train_esn(x,y,train_val_split, plot_dir, n_in, n_readout, sparsity, n_reservoir,  ro, input_scale,penalty)
-%TRAIN_ESN Summary of this function goes here
-%   Detailed explanation goes here
+%TRAIN_ESN Function needed to be called by the random search.
 x_train = x(:,1:train_val_split(1));
 y_train = y(:,1:train_val_split(1));
 x_val = x(:, train_val_split(1)+1:train_val_split(2));
 y_val = y(:, train_val_split(1)+1:train_val_split(2));
 
-% train over n reservoir guesses
+% train over 10 reservoir guesses
 n_guesses = 10;
 washout = 500;
 train_errs = zeros(n_guesses, 1);

@@ -5,7 +5,7 @@ y = cell2mat(data.NARMA10timeseries.target);
 
 % fixed params for this task
 n_in = 1; n_readout = 1;
-out_dir = "best_esn_ridge";
+out_dir = "best_esn";
 
 % random search
 n_config=1000;
