@@ -26,9 +26,10 @@ for p=1:size(patterns,1)
         
         [reconstruction, energy_hist, overlap_hists, x_hist] = net.retrieve(probe, epochs, tol, patience);
 
+        % PLOTTING
         clf
 
-        subplot(2,2,1)
+        subplot(3,2,1)
         hold on
 
         for mu=1:size(patterns,1)
@@ -45,21 +46,23 @@ for p=1:size(patterns,1)
         end
         legend(lgnd, Location='southeast')
 
-        subplot(2,2,3)
+        subplot(3,2,3)
         plot(energy_hist)
         xlim([0 length(energy_hist)])
         title("energy")
 
-        subplot(2,2,2)
+        subplot(3,2,2)
         imshow(reshape(original_pattern, 32,32))
         title("original")
 
+        subplot(3,2,4)
+        imshow(reshape(probe, 32,32))
+        t=title(sprintf("probe %f", distortions(d)));
+        set(t,'Interpreter','none')
 
-        subplot(2,2,4)
+        subplot(3,2,6)
         imshow(reshape(reconstruction, 32,32))
-        
         t=title(sprintf("reconstruction | f1_score=%f", f1_score(original_pattern, reconstruction)));
-        
         set(t,'Interpreter','none')
         % set figure units to pixels & adjust figure size
         set(fh, 'visible', 'off');
@@ -78,6 +81,7 @@ for p=1:size(patterns,1)
         end
         
         print(fh,sprintf("figures/p%d_distorted%.2f.png", p,distortions(d)),'-dpng',sprintf('-r%d',res))
+
     end
 
 end
